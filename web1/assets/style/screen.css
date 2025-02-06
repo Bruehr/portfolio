@@ -1,7 +1,56 @@
 body {
     width: 800px;
     margin: 0 auto; 
-    /*background-image: url(/web1/assets/images/webpage-background.jpg);
-    background-repeat: repeat-x;*/
-   
+    background-image: url('/web1/assets/images/webpage-background.jpg');
+    
+   }
+
+
+
+
+.content{
+    background-color: white;
 }
+
+nav {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    
+    font-weight: bold;
+    
+}
+
+nav a:hover {
+    background-color: lightgrey;
+}
+
+nav {
+    text-align: left
+}
+
+nav a {
+    display: inline-block;
+    margin: 0 15px;  /* Adjust the margin to control spacing */
+  }
+
+.image{
+    float: right;
+    margin: 10px 10px 10px 10px;
+    border: 2px solid black;
+}
+
+.alert{
+    color: rgba(17, 16, 58, 0.332);
+}
+
+h2,h3,h4{
+   color: #073BD9
+}
+
+
