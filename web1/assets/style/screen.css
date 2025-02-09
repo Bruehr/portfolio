@@ -1,8 +1,14 @@
 body {
-    width: 800px;
-    margin: 0 auto; 
-    background-image: url('/web1/assets/images/webpage-background.jpg');
     
+    background-image: url('/web1/assets/images/webpage-background.jpg');
+    background-repeat: repeat-x;
+    background-size: auto;
+    
+   }
+
+   .background{
+    width: 800px;
+    margin: 0 auto;
    }
 
 
