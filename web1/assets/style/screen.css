@@ -1,19 +1,18 @@
 body {
-    
-    background-image: url('/web1/assets/images/webpage-background.jpg');
+    background-image: url('../images/webpage-background.jpg');
     background-repeat: repeat-x;
     background-size: auto;
-    
-   }
+}
 
-   .background{
-    width: 800px;
+.background {
+    width: 100%; 
+    max-width: 800px; 
     margin: 0 auto;
-   }
+}
 
-
-.content{
+.content {
     background-color: white;
+    padding: 20px;
 }
 
 nav {
@@ -25,36 +24,33 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    
     font-weight: bold;
     
+}
+nav ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex; 
+}
+nav ul li {
+    margin: 0 20px; /* Adds more spacing between items */
 }
 
 nav a:hover {
     background-color: lightgrey;
 }
 
-nav {
-    text-align: left
-}
-
-nav a {
-    display: inline-block;
-    margin: 0 15px;  /* Adjust the margin to control spacing */
-  }
-
-.image{
+.image {
     float: right;
-    margin: 10px 10px 10px 10px;
+    margin: 10px;
     border: 2px solid black;
 }
 
-.alert{
+.alert {
     color: rgba(17, 16, 58, 0.332);
 }
 
-h2,h3,h4{
-   color: #073BD9
+h2, h3, h4 {
+    color: #073BD9;
 }
-
-
