@@ -49,7 +49,9 @@ nav a:hover {
 }
 
 .alert {
-    color: rgba(17, 16, 58, 0.332);
+    color: rgba(224, 21, 21, 0.773);
+    background-color: rgb(88, 170, 41);
+    
 }
 
 h2, h3, h4 {
