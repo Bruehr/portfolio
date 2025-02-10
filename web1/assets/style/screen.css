@@ -1,5 +1,5 @@
 body {
-    background-image: url('/web1/assets/images/webpage-background.jpg');
+    background-image: url('../images/webpage-background.jpg');
     background-repeat: repeat-x;
     background-size: 100% 100%;
     
