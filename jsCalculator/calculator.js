@@ -1,7 +1,7 @@
 function calculate() {
     "use strict";
 
-    // Clear error messages
+    // removing error messages
     document.getElementById("Operand1Error").innerHTML = "";
     document.getElementById("Operand2Error").innerHTML = "";
     document.getElementById("OperatorError").innerHTML = "";
@@ -9,21 +9,21 @@ function calculate() {
 
     let errorflag = false;
 
-    // Get and validate the first operand
+    // check operand1
     let operand1 = document.getElementById("Operand1").value;
     if (operand1 === "" || isNaN(operand1)) {
         document.getElementById("Operand1Error").innerHTML = "Operand 1 is required and must be a number";
         errorflag = true;
     }
 
-    // Get and validate the second operand
+    // check operand 2
     let operand2 = document.getElementById("Operand2").value;
     if (operand2 === "" || isNaN(operand2)) {
         document.getElementById("Operand2Error").innerHTML = "Operand 2 is required and must be a number";
         errorflag = true;
     }
 
-    // Stop execution if there are errors
+    
     if (errorflag) {
         return;
     }
@@ -32,7 +32,7 @@ function calculate() {
     let operand1fp = parseFloat(operand1);
     let operand2fp = parseFloat(operand2);
 
-    // Ensure an operator is selected
+    // check to make sure an operator has been chosen
     let operator;
     if (document.getElementById("AddOperator").checked) {
         operator = "+";
@@ -47,7 +47,7 @@ function calculate() {
         return;
     }
 
-    // Perform calculation
+    // 
     let result;
     if (operator === "+") {
         result = operand1fp + operand2fp;
