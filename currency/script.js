@@ -1,5 +1,5 @@
 const apiKey = 'UJBtkUuZP_ilXZaevHnzoF5OCx9YuudD';
-let chart; // Global reference to the chart
+let chart; 
 
 function clearForm() {
     $('#base-currency').val('');
@@ -9,7 +9,7 @@ function clearForm() {
     $('#error-messages').text('');
 
     if (chart) {
-        chart.destroy(); // Clear existing chart
+        chart.destroy(); 
     }
 }
 
