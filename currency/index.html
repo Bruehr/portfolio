@@ -3,45 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Currency Value History</title>
+    <link rel="stylesheet" href="style.css">    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <body>
-        <h1>Currency Value History</h1>
-        <form id="currency-form">
-            <label for="base-currency">Base Currency:</label>
-            <select id="base-currency" required>
-                <option value="">Select an Option...</option>
-                <option value="USD">US Dollar</option>
-                <option value="EUR">Euro</option>
-                <option value="GBP">Great Britain Pound</option>
-                <option value="CAD">Canadian dollor</option>
-                <option value="MXN">Mexican Peso</option>
-            </select>
-            <label for="convert-currency">Convert to Currency:</label>
-            <select id="convert-currency" required>
-                <option value="">Select an Option...</option>
-                <option value="USD">US Dollar</option>
-                <option value="EUR">Euro</option>
-                <option value="GBP">Great Britain Pound</option>
-                <option value="CAD">Canadian dollar</option>
-                <option value="MXN">Mexican peso</option>
-            </select>
-            <label for="from-date">From Date:</label>
-            <input type="date" id="from-date" required>
-            <label for="to-date">To Date:</label>
-            <input type="date" id="to-date" required>
-            <div id="button-container">
-                <button type="button" id="show-results">Show Results</button>
-                <button type="button" id="clear">Clear</button>
-            </div>
-        </form>
-        <div id="error-messages" style="color: red;"></div>
-        <div id="chart-container">
-            <canvas id="chartjs-0" width="800" height="400"></canvas>
+    <h1>Currency Value History</h1>
+    <form id="currency-form">
+        <label for="base-currency">Base Currency:</label>
+        <select id="base-currency" required>
+            <option value="">Select an Option...</option>
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">Great Britain Pound</option>
+            <option value="CAD">Canadian Dollar</option>
+            <option value="MXN">Mexican Peso</option>
+        </select>
+        <label for="convert-currency">Convert to Currency:</label>
+        <select id="convert-currency" required>
+            <option value="">Select an Option...</option>
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">Great Britain Pound</option>
+            <option value="CAD">Canadian Dollar</option>
+            <option value="MXN">Mexican Peso</option>
+        </select>
+        <label for="from-date">From Date:</label>
+        <input type="date" id="from-date" required>
+        <label for="to-date">To Date:</label>
+        <input type="date" id="to-date" required>
+        <div id="button-container">
+            <button type="button" id="show-results">Show Results</button>
+            <button type="button" id="clear">Clear</button>
         </div>
+    </form>
+    <div id="error-messages" style="color: red;"></div>
+    <div id="chart-container">
+        <canvas id="chartjs-0" width="800" height="400"></canvas>
+    </div>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

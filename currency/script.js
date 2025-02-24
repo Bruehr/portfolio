@@ -1,16 +1,22 @@
 const apiKey = 'UJBtkUuZP_ilXZaevHnzoF5OCx9YuudD';
+let chart; // Global reference to the chart
+
 function clearForm() {
     $('#base-currency').val('');
     $('#convert-currency').val('');
     $('#from-date').val('');
     $('#to-date').val('');
     $('#error-messages').text('');
-    const ctx = document.getElementById('chartjs-0').getContext('2d');
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+    if (chart) {
+        chart.destroy(); // Clear existing chart
+    }
 }
+
 function validateForm() {
     let valid = true;
     let errorMessage = '';
+
     if (!$('#base-currency').val()) {
         errorMessage += 'Base Currency is Required<br>';
         valid = false;
@@ -32,40 +38,58 @@ function validateForm() {
 }
 
 function showResults() {
-    if (!validateForm()) {
-        return;
-    }
+    if (!validateForm()) return;
+
     const baseCurrency = $('#base-currency').val();
     const convertCurrency = $('#convert-currency').val();
     const fromDate = $('#from-date').val();
     const toDate = $('#to-date').val();
+
     const url = `https://api.polygon.io/v2/aggs/ticker/C:${baseCurrency}${convertCurrency}/range/1/day/${fromDate}/${toDate}?adjusted=true&sort=asc&limit=120&apiKey=${apiKey}`;
-    $.get(url, function(data) {
+
+    $.get(url, function (data) {
         if (data.results && data.results.length > 0) {
             const values = data.results.map(result => result.c);
             const dates = data.results.map(result => new Date(result.t).toLocaleDateString());
-            const ctx = document.getElementById("chartjs-0");
-            new Chart(ctx, {
-                "type": "line",
-                "data": {
-                    "labels": dates,
-                    "datasets": [{
-                        "label": `One ${baseCurrency} to ${convertCurrency}`,
-                        "data": values,
-                        "fill": false
+
+            const ctx = document.getElementById("chartjs-0").getContext('2d');
+
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: `One ${baseCurrency} to ${convertCurrency}`,
+                        data: values,
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        fill: true,
+                        tension: 0.3
                     }]
                 },
-                "options": {
-                    responsive: false,
-                    maintainAspectRatio: true
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
                 }
             });
         } else {
             $('#error-messages').text('No data available for the selected currencies and dates.');
         }
-    }).fail(function() {
+    }).fail(function () {
         $('#error-messages').text('Error retrieving data. Please try again later.');
     });
 }
-$('#show-results').click(showResults);
-$('#clear').click(clearForm);
+
+$(document).ready(function () {
+    $('#show-results').click(showResults);
+    $('#clear').click(clearForm);
+});
